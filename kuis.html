@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erosedu - Platform Digital untuk Pencegahan Kekerasan Seksual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #1e40af;
+            --accent: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background: white;
+
+
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header & Navigation -->
+    <header class="bg-[#3f3f3f] shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-bold text-white font-serif">Erosedu</h1>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="beranda.html"
+                    class="nav-link text-white hover:bg-[#ff3737] hover:text-white hover:py-0.2 px-2 hover:rounded-full hover:transition duration-300 transform hover:scale-70">Beranda</a>
+                <a href="#kuis"
+                    class="nav-link text-white hover:bg-[#ff3737] hover:text-white hover:py-0.2 px-2 hover:rounded-full hover:transition duration-300 transform hover:scale-70">Kuis</a>
+                <a href="#konten"
+                    class="nav-link text-white hover:bg-[#ff3737] hover:text-white hover:py-0.2 px-2 hover:rounded-full hover:transition duration-300 transform hover:scale-70">Konten</a>
+                <a href="#chatbot"
+                    class="nav-link text-white hover:bg-[#ff3737] hover:text-white hover:py-0.2 px-2 hover:rounded-full hover:transition duration-300 transform hover:scale-70">Chatbot
+                    AI</a>
+                <a href="#pengaduan"
+                    class="nav-link-dropdown  text-white hover:bg-[#ff3737] hover:text-white hover:py-0.2 px-2 hover:rounded-full hover:transition duration-300 transform hover:scale-70">Layanan
+                    Pengaduan</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-0 bg-[#2e2e2e] z-50 p-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-xl font-bold text-[#ff3737] ">Erosedu</h2>
+                <button id="close-menu" class="text-white focus:outline-none">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <nav class="flex flex-col space-y-6">
+                <a href="#home"
+                    class="text-lg font-medium text-white hover:text-blue-600 py-2 hover:bg-white hover:rounded-lg">Beranda</a>
+                <a href="#kuis" class="text-lg font-medium text-gray-700 hover:text-blue-600 py-2">Kuis</a>
+                <a href="#konten" class="text-lg font-medium text-gray-700 hover:text-blue-600 py-2">Konten</a>
+                <a href="#chatbot" class="text-lg font-medium text-gray-700 hover:text-blue-600 py-2">Chatbot AI</a>
+                <a href="#pengaduan" class="text-lg font-medium text-gray-700 hover:text-blue-600 py-2">Layanan
+                    Pengaduan</a>
+            </nav>
+
+            <div class="mt-12 text-center">
+                <p class="text-gray-600">Platform Digital untuk Pencegahan Kekerasan Seksual dan Peningkatan Literasi
+                    Seksualitas Sehat</p>
+            </div>
+        </div>
+    </header>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Erosedu</h3>
+                    <p class="text-gray-400">Platform Digital untuk Pencegahan Kekerasan Seksual dan Peningkatan
+                        Literasi Seksualitas Sehat.</p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Menu</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-white transition duration-300">Beranda</a></li>
+                        <li><a href="#kuis" class="hover:text-white transition duration-300">Kuis</a></li>
+                        <li><a href="#konten" class="hover:text-white transition duration-300">Konten</a></li>
+                        <li><a href="#chatbot" class="hover:text-white transition duration-300">Chatbot AI</a></li>
+                        <li><a href="#pengaduan" class="hover:text-white transition duration-300">Layanan Pengaduan</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>info@erosedu.id</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            <span>+62 812 3456 7890</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            <span>Padang, Sumatra Barat</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Ikuti Kami</h4>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-400 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-pink-600 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-red-600 transition duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Erosedu. All rights reserved. | Terinspirasi oleh Ruang Edit 2004</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        // Check on load and scroll
+        window.addEventListener('load', fadeInOnScroll);
+        window.addEventListener('scroll', fadeInOnScroll);
+
+        // Simple chatbot functionality
+        const chatbotInput = document.querySelector('#chatbot input');
+        const chatbotSendButton = document.querySelector('#chatbot button');
+        const chatbotMessages = document.querySelector('#chatbot .h-80');
+
+        const chatbotResponses = [
+            "Saya di sini untuk membantu Anda dengan pertanyaan tentang kesehatan reproduksi dan pencegahan kekerasan seksual.",
+            "Penting untuk mengenali bagian tubuh pribadi Anda dan tahu bahwa tidak ada yang boleh menyentuhnya tanpa izin Anda.",
+            "Jika seseorang membuat Anda tidak nyaman, katakan 'tidak' dengan tegas dan segera cari bantuan dari orang dewasa yang dipercaya.",
+            "Kesehatan reproduksi adalah bagian penting dari kesehatan secara keseluruhan. Jangan ragu untuk bertanya tentang hal ini.",
+            "Jika Anda mengalami atau melihat kekerasan seksual, segera laporkan ke orang tua, guru, atau hotline darurat.",
+            "Setiap orang berhak merasa aman dan dihormati. Jangan biarkan siapa pun melanggar hak Anda.",
+            "Edukasi seksual membantu kita memahami tubuh kita, hubungan yang sehat, dan bagaimana melindungi diri sendiri.",
+            "Jika Anda memiliki pertanyaan sensitif, Anda bisa bertanya secara anonim di sini. Saya akan menjawab dengan informasi yang akurat."
+        ];
+
+        chatbotSendButton.addEventListener('click', sendMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        function sendMessage() {
+            const message = chatbotInput.value.trim();
+            if (message === '') return;
+
+            // Add user message
+            addMessage(message, 'user');
+            chatbotInput.value = '';
+
+            // Simulate typing delay
+            setTimeout(() => {
+                // Add bot response
+                const randomResponse = chatbotResponses[Math.floor(Math.random() * chatbotResponses.length)];
+                addMessage(randomResponse, 'bot');
+            }, 1000);
+        }
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('flex', 'mb-4');
+
+            if (sender === 'user') {
+                messageDiv.classList.add('justify-end');
+                messageDiv.innerHTML = `
+                    <div class="bg-blue-600 text-white rounded-lg p-3 max-w-xs shadow-sm">
+                        <p>${text}</p>
+                    </div>
+                    <div class="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center text-white text-sm ml-2">A</div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm mr-2">E</div>
+                    <div class="bg-white rounded-lg p-3 max-w-xs shadow-sm">
+                        <p>${text}</p>
+                    </div>
+                `;
+            }
+
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+    </script>
+</body>
+
+</html>
